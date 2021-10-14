@@ -1,0 +1,10 @@
+require('./label');
+require('./item');
+require('./placed');
+require('./side');
+require('./clients');
+require('./table');
+require('./controls');
+require('./settings');
+require('./movable');
+require('./app');

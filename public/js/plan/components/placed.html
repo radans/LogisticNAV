@@ -1,0 +1,15 @@
+<div data-bind="generic: binding" class="kp-placed">
+    <kp-label params="item: package, placed: true"></kp-label>
+    <div data-bind="if: package.dimensionsVisible()">
+        <div data-bind="text: package.height()" class="kp-package-height"></div>            
+        <div data-bind="text: package.width()" class="kp-package-width"></div>
+        <div data-bind="if: sheet.useNames()">
+            <div class="kp-package-name">
+                <div data-bind="text: package.name()"></div>
+            </div>
+        </div>
+        <div data-bind="if: sheet.useOrder()">
+            <div data-bind="text: item.orderString()" class="kp-package-order"></div>
+        </div>
+    </div>
+</div>

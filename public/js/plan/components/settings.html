@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-xs-2">
+        <div class="form-group">
+            <label>Töölehe nimetus</label>
+        </div>
+        <div class="form-group">
+            <input
+                data-bind="textInput: sheet.name"
+                type="text"
+                class="form-control input-sm"
+                placeholder="Töölehe nimetus (kuupäev)">
+        </div>
+        <div class="form-group">
+            <label>Kasti pikkus (m)</label>
+        </div>
+        <div class="form-group">
+            <input
+                type="text"
+                data-bind="textInput: sheet.length, disable: !sheet.canChangeTruck()"
+                class="form-control input-sm"
+                placeholder="m">
+        </div>        
+        <div class="form-group">
+            <label>
+                <input
+                    data-bind="checked: sheet.modified"
+                    type="checkbox"> Muudetud
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                <input
+                    data-bind="checked: sheet.useOrder"
+                    type="checkbox"> Kasuta jrk. numbreid
+            </label>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <div class="form-group">
+            <label>Kasti kõrgus (m)</label>
+        </div>
+        <div class="form-group">
+            <input
+                data-bind="textInput: sheet.height, disable: !sheet.canChangeTruck()"
+                type="text"
+                class="form-control input-sm"
+                placeholder="m">
+        </div>
+        <div class="form-group">
+            <label>Muudatuse tekst</label>
+        </div>
+        <div class="form-group">
+            <input
+                type="text"
+                data-bind="textInput: sheet.modifiedText, disable: !sheet.modified()"
+                class="form-control input-sm">
+        </div>
+        <div class="form-group">
+            <label>
+                <input
+                    data-bind="checked: sheet.useNames"
+                    type="checkbox"> Näita nimesid
+            </label>
+        </div>
+    </div>
+</div>

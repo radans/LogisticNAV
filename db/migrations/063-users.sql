@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD COLUMN `order_mail_copy` TINYINT(1) NOT NULL DEFAULT 1;

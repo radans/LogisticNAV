@@ -1,0 +1,36 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": "error",
+    "no-undef": "error"
+  },
+  "globals": {
+    "React": true,
+    "ReactDOM": true,
+    "Chart": true,
+    "$": true,
+    "describe": true,
+    "it": true,
+    "after": true,
+    "flatpickr": true,
+    "ko": true,
+    "app": true,
+    "ES6Promise": true,
+    "PhotoSwipe": true,
+    "PhotoSwipeUI_Default": true
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "plugins": [
+    "react"
+  ]
+}

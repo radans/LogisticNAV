@@ -1,0 +1,22 @@
+{
+    "port": 8000,
+    "self": "http://10.0.1.47",
+    "session": {
+        "key": "auto312veo"
+    },
+    "db": {
+        "host": "127.0.0.1",
+        "database": "veotellimused",
+        "user": "veotellimused",
+        "password": "veotellimused"
+    },
+    "timezone": "Europe/Tallinn",
+    "mail": {
+        "from": "noreply@lasita.com",
+        "smtp": {
+            "port": 465,
+            "host": "mail.neti.ee",
+            "secure": true
+        }
+    }
+}

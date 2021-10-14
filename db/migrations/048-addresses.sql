@@ -1,0 +1,1 @@
+ALTER TABLE `addresses` ADD COLUMN `region` VARCHAR(255) DEFAULT NULL;

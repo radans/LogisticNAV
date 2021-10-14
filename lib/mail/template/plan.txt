@@ -1,0 +1,5 @@
+Saadan plaani <%= plan.name %>. Selle meili said:
+
+<% for (const user of users) { %>
+ * <%= user.name %>
+<% } %>

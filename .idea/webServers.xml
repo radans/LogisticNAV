@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bfd83258-82ce-4919-bfeb-177d2974e0ac" name="server" url="http://94.237.105.110">
+        <fileTransfer rootFolder="/veotellimused" accessType="SFTP" host="94.237.105.110" port="22" sshConfigId="e7507e6e-a493-44e3-bea8-b8d3c27d1d50" sshConfig="root@94.237.105.110:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

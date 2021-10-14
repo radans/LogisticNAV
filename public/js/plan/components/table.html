@@ -1,0 +1,37 @@
+<div class="kp-table">
+    <table data-bind="style: { 'font-size': sheet.tableFont() + 'px' }">
+        <tbody data-bind="foreach: sheet.tree()">
+            <tr><td data-bind="text: client.nameWithOrder() || '&nbsp;'"
+                colspan="5" class="kp-table-client">&nbsp;</td></tr>
+            <!-- ko foreach: items -->
+                <tr data-bind="style: { 'background-color': color() }">
+                    <td data-bind="text: code" class="text-nowrap"></td>
+                    <td data-bind="text: placedCount() + 'x' + name()"></td>
+                    <td data-bind="text: height() + 'x' + width()"></td>
+                    <td data-bind="text: production() ? 'T' : ''" class="kp-table-production"></td>
+                    <td data-bind="text: marker()" class="kp-table-marker"></td>
+                </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+    <div data-bind="if: sheet.tree().length > 0">
+        <form class="kp-margin hidden-print">
+            <div class="form-group">
+                <select data-bind="value: sheet.tableFont" class="form-control input-sm">
+                    <option value="10">10px</option>
+                    <option value="11">11px</option>
+                    <option value="12">12px</option>
+                    <option value="13">13px</option>
+                    <option value="14">14px</option>
+                    <option value="15">15px</option>
+                    <option value="16">16px</option>
+                    <option value="17">17px</option>
+                    <option value="18">18px</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div>
+        Kaal kokku: <span data-bind="text: sheet.totalWeightString()"></span> kg
+    </div>
+</div>

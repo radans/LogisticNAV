@@ -1,0 +1,1 @@
+ALTER TABLE `orders` ADD COLUMN `unload_date` DATE DEFAULT NULL;

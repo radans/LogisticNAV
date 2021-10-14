@@ -1,0 +1,24 @@
+Tere!
+
+Edastan Teile transporditellimuse. Palun kinnitada auto
+numbrid ja kauba kohale jõudmise aeg. Juhin tähelepanu,
+et arvega koos tuleb saata CMR ja delivery note kliendi
+allkirjaga.
+
+NB! Enne laadima pääsemist peab juht minema dokumentide
+vormistamisse. Juhin tähelepanu, et juhil peab kinnitamiseks
+olema ka plastmassnurgad.
+
+Lisaks: Vajaliku info lubatud plastik nurkade kohta leiate
+autoveose juhendist mis on tellimusel manusena kaasas!
+
+Tervitades,
+<%= user.name %>,
+AS Lasita Maja,
+
+Risu tee 2, Pihva küla
+61407 Tähtvere vald
+Tartumaa, Estonia
+
+Tel. <%= user.phone %>,
+<%= user.order_email %>

@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD COLUMN `receive_plan_mails` TINYINT(1) NOT NULL DEFAULT 0;

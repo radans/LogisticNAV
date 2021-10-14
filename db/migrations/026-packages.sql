@@ -1,0 +1,8 @@
+CREATE TABLE `packages` (
+  `code` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `width` VARCHAR(255) NOT NULL,
+  `height` VARCHAR(255) NOT NULL,
+  `double` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`code`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

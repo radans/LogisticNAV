@@ -1,0 +1,22 @@
+<hr class="hidden-print">
+<form class="hidden-print">
+    <kp-settings params="sheet: sheet"></kp-settings>    
+</form>
+<hr class="hidden-print">
+<kp-clients params="sheet: sheet"></kp-clients>
+<h1 data-bind="text: sheet.name"></h1>
+<hr class="hidden-print">
+<div data-bind="foreach: sheet.packages"
+    class="kp-packages clearfix hidden-print">
+    <kp-item params="item: $data, sheet: $parent.sheet"></kp-item>
+</div>
+<kp-controls params="sheet: sheet"></kp-controls>
+<div data-bind="style: { width: (sheet.sideWidth() + 10) + 'px' }" class="kp-canvas">
+    <kp-side params="side: sheet.side1, sheet: sheet"></kp-side>
+    <kp-side params="side: sheet.side2, sheet: sheet"></kp-side>
+</div>
+<kp-table params="sheet: sheet"></kp-table>
+<datalist data-bind="foreach: complete()" id="codelist">
+    <option data-bind="attr: { value: code }"></option>
+</datalist>
+<kp-movable params="movable: movable, click: action.clickMovable"></kp-movable>
