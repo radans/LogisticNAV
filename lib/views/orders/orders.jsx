@@ -126,7 +126,7 @@ module.exports = (props) => {
                                     </div>
                                 </td>
                                 <td className='text-right'>
-                                    {order.price === null ? '' : order.price.toFixed(0) }
+                                    {order.price === null ? '' : Number(order.price).toFixed(0) }
                                 </td>
                                 <td className='vt-cell-editable vt-orders-edit text-right'>
                                     <div className='vt-relative'>{order.invoice}</div>

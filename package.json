@@ -35,7 +35,8 @@
     "compile": "webpack --config webpack/all.js",
     "compile-watch": "webpack -w --config webpack/all.js",
     "check-ko": "node scripts/ko_template_validator.js",
-    "node-watch": "nodemon --watch lib index.js"
+    "node-watch": "nodemon --watch lib index.js",
+    "dev": "npm run node-watch & npm run compile-watch"
   },
   "devDependencies": {
     "babel-loader": "^7.1.1",

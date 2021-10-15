@@ -593,14 +593,14 @@ module.exports = (element, fn, clear = false) => {
 /***/ (function(module, exports) {
 
 exports.get = async (url) => {
-    const response = await fetch(url, { credentials: 'include' });
+    const response = await fetch(url, {credentials: 'include'});
     return handleResponse(response);
 };
 
 exports.save = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data),
         credentials: 'include'
     });
@@ -610,7 +610,7 @@ exports.save = async (url, data) => {
 exports.update = async (url, data) => {
     const response = await fetch(url, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data),
         credentials: 'include'
     });

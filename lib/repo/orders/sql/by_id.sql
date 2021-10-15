@@ -22,6 +22,7 @@ SELECT
   `orders`.`full_load` AS `full_load`,
   `orders`.`import` AS `import`,
   `orders`.`client_transport` AS `client_transport`,
+  `orders`.`who` AS `who`,
   `companies`.`id` AS `company_id`,
   `companies`.`name` AS `company_name`,
   `companies`.`contact` AS `contact`,

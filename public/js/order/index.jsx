@@ -28,10 +28,12 @@ companyOptions.unshift({
     label: 'Määramata'
 });
 
+
 const OrderForm = FormHoc(class extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log('props', props)
         this.state = {
             addresses: [],
             editingOnload: false,
@@ -41,7 +43,7 @@ const OrderForm = FormHoc(class extends React.Component {
         this.onUnloadChange = this.onUnloadChange.bind(this);
         this.findAddresses = debounce(this.findAddresses.bind(this), 1000);
         this.selectAddress = this.selectAddress.bind(this);
-        this.closeFinder = this.closeFinder.bind(this);        
+        this.closeFinder = this.closeFinder.bind(this);
         this.setLoadingDateInput = this.setLoadingDateInput.bind(this);
         this.loadingDateInput = null;
         this.loadingDateCalendar = null;
@@ -89,7 +91,7 @@ const OrderForm = FormHoc(class extends React.Component {
         const url = `/api/addresses/${address}`;
         try {
             const addresses = await api.get(url);
-            this.setState({ addresses, editingOnload: isOnload });
+            this.setState({addresses, editingOnload: isOnload});
         } catch (err) {
             window.showError('Viga aadresside leidmisel. Palun proovi' +
                 ' tegevust uuesti teha või võta ühendust arvutispetsialistiga.');
@@ -102,6 +104,7 @@ const OrderForm = FormHoc(class extends React.Component {
 
     componentWillReceiveProps(props) {
         const date = props.values.loading_date;
+        console.log('props', props)
         if (date !== this.props.values.loading_date) {
             this.updateLoadings(dateString.fromEstonian(date));
         }
@@ -117,7 +120,7 @@ const OrderForm = FormHoc(class extends React.Component {
         }
         try {
             const loadings = await api.get(url);
-            this.setState({ loadings });
+            this.setState({loadings});
         } catch (err) {
             window.showError('Viga sama päeva laadimiste leidmisel. Palun proovi' +
                 ' tegevust uuesti teha või võta ühendust arvutispetsialistiga.');
@@ -136,8 +139,8 @@ const OrderForm = FormHoc(class extends React.Component {
             const editedAddress = copy[index];
             if (editedAddress) {
                 copy[index] = Object.assign({},
-                    editedAddress, { address: address.address });
-                this.setState({ addresses: [] });
+                    editedAddress, {address: address.address});
+                this.setState({addresses: []});
                 this.props.valueChange(type, copy);
             }
         }
@@ -145,17 +148,18 @@ const OrderForm = FormHoc(class extends React.Component {
 
     closeFinder(e) {
         e.preventDefault();
-        this.setState({ addresses: [] });
+        this.setState({addresses: []});
     }
 
     render() {
-        const {            
+        const {
             error,
             errors,
             values,
             submit,
             loading,
-            inputChange
+            inputChange,
+            who
         } = this.props;
         const {
             loadings,
@@ -166,14 +170,16 @@ const OrderForm = FormHoc(class extends React.Component {
                 <div className='row'>
                     <div className='col-xs-12'>
                         {error &&
-                            <FormGroup><div className='vt-form-error'>{error}</div></FormGroup>}
+                        <FormGroup>
+                            <div className='vt-form-error'>{error}</div>
+                        </FormGroup>}
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-xs-2'>
                         <TextInput
                             name='name'
-                            id='order-name'                    
+                            id='order-name'
                             label='Koorma nimetus'
                             placeholder='Koorma nimetus'
                             value={values.name}
@@ -204,7 +210,7 @@ const OrderForm = FormHoc(class extends React.Component {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-xs-2'>                        
+                    <div className='col-xs-2'>
                         <TextInput
                             name='country'
                             id='order-country'
@@ -214,7 +220,7 @@ const OrderForm = FormHoc(class extends React.Component {
                             error={errors.country}
                             onChange={inputChange}/>
                     </div>
-                    <div className='col-xs-2'>                        
+                    <div className='col-xs-2'>
                         <TextInput
                             name='price'
                             id='order-price'
@@ -223,7 +229,17 @@ const OrderForm = FormHoc(class extends React.Component {
                             value={values.price}
                             error={errors.price}
                             onChange={inputChange}/>
-                    </div>                    
+                    </div>
+                    <div className='col-xs-2'>
+                        <TextInput
+                            name='who'
+                            id='who'
+                            label='Kellelt'
+                            placeholder='Kellelt'
+                            value={values.who}
+                            error={errors.who}
+                            onChange={inputChange}/>
+                    </div>
                 </div>
                 <div className='row'>
                     <div className='col-xs-2'>
@@ -281,17 +297,18 @@ const OrderForm = FormHoc(class extends React.Component {
                             Ilma aadressita asukohti ei salvestata.
                         </FormGroup>
                         {loadings.length > 0 &&
-                            <FormGroup>
-                                Samal päeval lisaks toimuvad laadimised:
-                                <table className='table table-bordered vt-order-loadings'>
-                                    <tbody>
-                                        {loadings.map(loading =>
-                                            <tr key={`${loading.order_id}-${loading.time}`}>
-                                                <th>{loading.time}</th><td>{loading.order_name}</td>
-                                            </tr>)}
-                                    </tbody>
-                                </table>                                
-                            </FormGroup>
+                        <FormGroup>
+                            Samal päeval lisaks toimuvad laadimised:
+                            <table className='table table-bordered vt-order-loadings'>
+                                <tbody>
+                                {loadings.map(loading =>
+                                    <tr key={`${loading.order_id}-${loading.time}`}>
+                                        <th>{loading.time}</th>
+                                        <td>{loading.order_name}</td>
+                                    </tr>)}
+                                </tbody>
+                            </table>
+                        </FormGroup>
                         }
                         <LoadingList
                             timeEdit={true}
@@ -314,26 +331,26 @@ const OrderForm = FormHoc(class extends React.Component {
                                 label='Salvesta'
                                 disabled={loading}/>
                             &nbsp;<Button
-                                href='/orders'
-                                icon='window-close-o'
-                                label='Loobu'/>
+                            href='/orders'
+                            icon='window-close-o'
+                            label='Loobu'/>
                             {loading &&
-                                <div className='vt-loader vt-loader-small vt-loader-top-right'></div>}
+                            <div className='vt-loader vt-loader-small vt-loader-top-right'></div>}
                         </FormGroup>
                     </div>
                 </div>
                 {addresses.length > 0 &&
-                    <div className='vt-address-finder'>
-                        <div className='vt-address-finder-close'>
-                            <a href='#' onClick={this.closeFinder}>
-                                <Icon name='close'/>
-                            </a>
-                        </div>
-                        {addresses.map(address =>
-                            <a key={`address-${address.id}`} href='#' className='vt-address-item'
-                                onClick={(e) => this.selectAddress(e, address.id)}>{address.address}</a>
-                        )}
-                    </div>}
+                <div className='vt-address-finder'>
+                    <div className='vt-address-finder-close'>
+                        <a href='#' onClick={this.closeFinder}>
+                            <Icon name='close'/>
+                        </a>
+                    </div>
+                    {addresses.map(address =>
+                        <a key={`address-${address.id}`} href='#' className='vt-address-item'
+                           onClick={(e) => this.selectAddress(e, address.id)}>{address.address}</a>
+                    )}
+                </div>}
             </form>
         );
     }
@@ -382,6 +399,7 @@ const initial = {
     info: '',
     price: '',
     country: '',
+    who: '',
     full_load: true,
     import: false,
     client_transport: false,
@@ -405,6 +423,8 @@ if (data) {
     initial.company = data.company_id || '0';
     initial.notes = data.notes;
     initial.info = data.info;
+    initial.who = data.who;
+
     if (data.price !== null) {
         initial.price = data.price.toString();
     }
@@ -420,8 +440,8 @@ if (data) {
     initial.client_transport = data.client_transport;
 }
 
-initial.onload.push({ address: '', time: '09:30' });
-initial.unload.push({ address: '', date: '', time: '' });
+initial.onload.push({address: '', time: '09:30'});
+initial.unload.push({address: '', date: '', time: ''});
 
 ReactDOM.render(
     <OrderForm
