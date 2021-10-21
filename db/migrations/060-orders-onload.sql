@@ -1,0 +1,1 @@
+ALTER TABLE `orders_onload` ADD COLUMN `time` VARCHAR(10) NOT NULL;

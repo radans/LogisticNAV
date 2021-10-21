@@ -1,0 +1,23 @@
+Tere!
+
+Edastan Teile transporditellimuse. Palun kinnitada auto
+numbrid ja kauba kohale jõudmise aeg. Juhin tähelepanu,
+et arvega koos tuleb saata CMR ja delivery note kliendi
+allkirjaga.
+
+NB! Juhin tähelepanu, et juhil peab kinnitamiseks
+olema ka plastmassnurgad.
+
+Lisaks: Vajaliku info lubatud plastik nurkade kohta leiate
+autoveose juhendist mis on tellimusel manusena kaasas!
+
+Tervitades,
+<%= user.name %>,
+Rakvere Metsamajand AS
+
+J. Kunderi 30, Rakvere
+44309 Lääne-Viru maakond
+Eesti
+
+Tel. <%= user.phone %>,
+<%= user.order_email %>

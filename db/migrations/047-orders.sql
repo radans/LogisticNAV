@@ -1,0 +1,1 @@
+ALTER TABLE `orders` ADD COLUMN `full_load` TINYINT(1) DEFAULT 1;

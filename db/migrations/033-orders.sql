@@ -1,0 +1,1 @@
+ALTER TABLE `orders` ADD COLUMN `commit_date` BIGINT DEFAULT NULL;

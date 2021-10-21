@@ -1,0 +1,95 @@
+<div class="hidden-print">
+    <div class="kp-article">
+        <div class="form-group">
+            <div class="kp-input-align-code"></div>
+            <label class="kp-article-label kp-input-code">Kood</label>
+            <label class="kp-article-label kp-input-name">Nimetus</label>                            
+            <label class="kp-article-label kp-input-height">Kõrgus</label>
+            <label class="kp-article-label kp-input-width">Pikkus</label>            
+            <label class="kp-article-label kp-input-count">Kogus</label>         
+            <label class="kp-article-label kp-input-double">Kp.</label>
+            <label class="kp-article-label kp-input-production">T.</label>
+            <label class="kp-article-label kp-input-weight">Kaal</label>
+            <label class="kp-article-label kp-input-marker">Tähis</label>
+        </div>
+        <div data-bind="foreach: sheet.clients">
+            <div class="form-group">
+                <input data-bind="hasFocus: focus(), textInput: name"
+                    type="text" class="form-control input-sm kp-input-client"
+                    placeholder="Klient">
+                <input data-bind="textInput: zipcode"
+                    type="text" class="form-control input-sm kp-input-zipcode"
+                    placeholder="Postikood">
+                <input data-bind="textInput: order, visible: $parent.sheet.useOrder()"
+                    type="text" class="form-control input-sm kp-input-client-order">
+                <a data-bind="click: action.addItem" href="#"
+                    class="btn btn-primary btn-sm">Rida</a>
+                <a data-bind="click: action.remove"
+                    href="#" class="btn btn-danger btn-sm">Kustuta</a>
+            </div>
+            <div data-bind="foreach: items()">
+                <div class="form-group">
+                    <div data-bind="style: { background: color() }" class="kp-color-indicator"></div>
+                    <input data-bind="hasFocus: focus(), textInput: code, event: { input: action.codeInput, keydown: action.codeKeyDown }"
+                        type="text" class="form-control input-sm kp-input-code"
+                        placeholder="Kood" list="codelist">
+                    <input data-bind="textInput: name"
+                        type="text" class="form-control input-sm kp-input-name" placeholder="Nimetus">
+                    <input data-bind="textInput: height, disable: placedCount() > 0"
+                        type="text" class="form-control input-sm kp-input-height" placeholder="cm">
+                    <input data-bind="
+                            event: { keypress: $component.sheet.action.press },
+                            textInput: width, disable: placedCount() > 0"
+                        type="text" class="form-control input-sm kp-input-width" placeholder="cm">                    
+                    <input data-bind="
+                            event: { keypress: $component.sheet.action.press },
+                            textInput: count, hasFocus: countFocus()"
+                        type="text" class="form-control input-sm kp-input-count" placeholder="tk">                    
+                    <div class="kp-input-double kp-inline-block">
+                        <input type="checkbox" data-bind="checked: double, disable: placedCount() > 0"
+                            class="kp-inline-block">
+                    </div>
+                    <div class="kp-input-production kp-inline-block">
+                        <input type="checkbox" data-bind="checked: production"
+                            class="kp-inline-block">
+                    </div>
+                    <input data-bind="textInput: weight"
+                        type="text" class="form-control input-sm kp-input-weight">
+                    <input data-bind="textInput: marker" maxlength="3"
+                        type="text" class="form-control input-sm kp-input-marker">
+                    <button data-bind="click: action.remove"
+                        class="btn btn-danger btn-sm">Kustuta</button>
+                </div>
+                <div data-bind="if: placedCount() > parseInt(count(), 10)">
+                    <div class="kp-count-error">
+                        Autosse paigutatud rohkem kui kogus lubab!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kp-autocomplete-message">
+            Automaatselt paki parameetrite täitmiseks vajuta TAB klahvi pärast pakutud nimekirjast
+            koodi valimist (juhul kui kood on mõne teise koodi prefiks).
+        </div>
+        <div class="form-group">
+            <a data-bind="click: sheet.action.addClient"
+                href="#" class="btn btn-primary btn-sm kp-btn">Klient</a>
+            <a data-bind="click: sheet.action.removeAll"
+                href="#" class="btn btn-danger btn-sm kp-btn">Kustuta kõik</a>
+            <!-- ko if: sheet.id() -->
+                <a data-bind="click: sheet.action.removePlan"
+                    href="#" class="btn btn-danger btn-sm kp-btn">Kustuta plaan</a>
+            <!-- /ko -->
+            <!-- ko if: sheet.id() -->
+                <a href="#" data-bind="click: sheet.action.toNext"
+                    class="btn btn-success btn-sm kp-btn">Ülejääk järgmisele</a>
+            <!-- /ko -->
+            <!-- ko if: sheet.id() -->
+                <a href="#" data-bind="attr: {
+                    href: '/plan/' + sheet.id() + '/pdf',
+                    target: 'plan_' + sheet.id() }"
+                    class="btn btn-default btn-sm kp-btn">PDF</a>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

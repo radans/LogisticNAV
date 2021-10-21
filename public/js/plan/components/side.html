@@ -1,0 +1,9 @@
+<div>
+    Kõrgus: <span data-bind="text: side().totalHeight().toFixed(2)"></span>m,
+    pikkus: <span data-bind="text: side().totalWidth().toFixed(2)"></span>m
+</div>
+<div data-bind="generic: binding" class="kp-truck-side">
+    <div data-bind="foreach: side().items()" class="kp-truck-inner">
+        <kp-placed params="item: $data, sheet: $parent.sheet"></kp-placed>
+    </div>
+</div>

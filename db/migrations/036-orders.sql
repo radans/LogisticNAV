@@ -1,0 +1,1 @@
+ALTER TABLE `orders` CHANGE COLUMN `price` `price` DECIMAL(6, 2) DEFAULT NULL;

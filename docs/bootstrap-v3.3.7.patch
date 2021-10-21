@@ -1,0 +1,117 @@
+diff --git a/less/bootstrap.less b/less/bootstrap.less
+index f0aa08f..8fd1c6c 100644
+--- a/less/bootstrap.less
++++ b/less/bootstrap.less
+@@ -11,7 +11,7 @@
+ // Reset and dependencies
+ @import "normalize.less";
+ @import "print.less";
+-@import "glyphicons.less";
++// @import "glyphicons.less";
+ 
+ // Core CSS
+ @import "scaffolding.less";
+@@ -23,33 +23,33 @@
+ @import "buttons.less";
+ 
+ // Components
+-@import "component-animations.less";
+-@import "dropdowns.less";
+-@import "button-groups.less";
+-@import "input-groups.less";
++// @import "component-animations.less";
++// @import "dropdowns.less";
++// @import "button-groups.less";
++// @import "input-groups.less";
+ @import "navs.less";
+-@import "navbar.less";
+-@import "breadcrumbs.less";
++// @import "navbar.less";
++// @import "breadcrumbs.less";
+ @import "pagination.less";
+-@import "pager.less";
++// @import "pager.less";
+ @import "labels.less";
+-@import "badges.less";
+-@import "jumbotron.less";
+-@import "thumbnails.less";
++// @import "badges.less";
++// @import "jumbotron.less";
++// @import "thumbnails.less";
+ @import "alerts.less";
+-@import "progress-bars.less";
+-@import "media.less";
+-@import "list-group.less";
+-@import "panels.less";
+-@import "responsive-embed.less";
+-@import "wells.less";
+-@import "close.less";
++// @import "progress-bars.less";
++// @import "media.less";
++// @import "list-group.less";
++// @import "panels.less";
++// @import "responsive-embed.less";
++// @import "wells.less";
++// @import "close.less";
+ 
+ // Components w/ JavaScript
+-@import "modals.less";
+-@import "tooltip.less";
+-@import "popovers.less";
+-@import "carousel.less";
++// @import "modals.less";
++// @import "tooltip.less";
++// @import "popovers.less";
++// @import "carousel.less";
+ 
+ // Utility classes
+ @import "utilities.less";
+diff --git a/less/print.less b/less/print.less
+index 66e54ab..51eda45 100644
+--- a/less/print.less
++++ b/less/print.less
+@@ -9,8 +9,6 @@
+     *,
+     *:before,
+     *:after {
+-        background: transparent !important;
+-        color: #000 !important; // Black prints faster: h5bp.com/s
+         box-shadow: none !important;
+         text-shadow: none !important;
+     }
+@@ -20,10 +18,6 @@
+         text-decoration: underline;
+     }
+ 
+-    a[href]:after {
+-        content: " (" attr(href) ")";
+-    }
+-
+     abbr[title]:after {
+         content: " (" attr(title) ")";
+     }
+@@ -84,11 +78,6 @@
+ 
+     .table {
+         border-collapse: collapse !important;
+-
+-        td,
+-        th {
+-            background-color: #fff !important;
+-        }
+     }
+     .table-bordered {
+         th,
+diff --git a/less/variables.less b/less/variables.less
+index 03b5498..1e838f9 100644
+--- a/less/variables.less
++++ b/less/variables.less
+@@ -122,7 +122,7 @@
+ //## Customizes the `.table` component with basic values, each used across all table variations.
+ 
+ //** Padding for `<th>`s and `<td>`s.
+-@table-cell-padding:            8px;
++@table-cell-padding:            5px;
+ //** Padding for cells in `.table-condensed`.
+ @table-condensed-cell-padding:  5px;
+ 

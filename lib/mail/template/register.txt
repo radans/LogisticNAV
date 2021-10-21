@@ -1,0 +1,8 @@
+Tere!
+
+Veotellimuste süsteemi kasutajaks registreerumiseks külastage linki ja valige parool:
+<%= link %>
+
+--------
+Parimat,
+Lasita Veotellimuste Süsteem

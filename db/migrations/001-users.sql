@@ -1,0 +1,13 @@
+CREATE TABLE `users` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR (255) NOT NULL,
+    `name` VARCHAR (255) DEFAULT NULL,
+    `phone` VARCHAR (255) DEFAULT NULL,
+    `collapsed` TINYINT(1) NOT NULL DEFAULT 0,
+    `salt` VARCHAR(255) NOT NULL,
+    `hash` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+INSERT INTO `users` (`email`, `salt`, `hash`)
+VALUES ('test@lasita.com', 'aaa123', 'e2ad337856eb3c8e04d0f7c13248142941176af61a915d59654b58af06e4e78a366909005eea0a6216947d8f467a3e667d62390960991df58bcfde6ac39ebfb5');

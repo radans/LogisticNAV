@@ -1,0 +1,29 @@
+{
+    "port": 8000,
+    "self": "http://10.0.1.47",
+    "session": {
+        "key": "auto312veo"
+    },
+    "db": {
+        "host": "127.0.0.1",
+        "database": "sandla",
+        "user": "sandla",
+        "password": "moQ3fmGR5s*%ms"
+    },
+    "timezone": "Europe/Tallinn",
+    "mail": {
+        "from": "astel@logisticnav.com",
+        "smtp": {
+            "port": 587,
+            "host": "smtp.office365.com",
+            "secureConnection": false,
+	    "requireTLS": {
+		    "ciphers": "SSLv3"
+	    },
+	    "auth": {
+		"user": "astel@logisticnav.com",
+		"pass": "Xasp5757!1"
+	    }
+        }
+    }
+}

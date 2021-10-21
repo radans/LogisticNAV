@@ -1,0 +1,2 @@
+DELETE FROM `orders`;
+ALTER TABLE `orders` ADD COLUMN `author_id` INTEGER NOT NULL;
