@@ -802,161 +802,162 @@ module.exports = class Orders extends React.PureComponent {
     render() {
         const { orders } = this.props;
         return React.createElement(
-            'div',
-            null,
+            'table',
+            { className: 'table table-bordered table-striped' },
             React.createElement(
-                'table',
-                { className: 'table table-bordered table-striped' },
+                'colgroup',
+                null,
+                React.createElement('col', { className: 'vt-stats-orders-number-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-date-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-country-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-region-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-price-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-full-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-load-count-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-company-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-invoice-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-import-col' }),
+                React.createElement('col', { className: 'vt-stats-orders-notes-col' })
+            ),
+            React.createElement(
+                'thead',
+                null,
                 React.createElement(
-                    'colgroup',
-                    null,
-                    React.createElement('col', { className: 'vt-stats-orders-number-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-date-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-country-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-region-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-price-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-full-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-load-count-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-company-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-invoice-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-import-col' }),
-                    React.createElement('col', { className: 'vt-stats-orders-notes-col' })
-                ),
-                React.createElement(
-                    'thead',
+                    'tr',
                     null,
                     React.createElement(
-                        'tr',
+                        'th',
+                        { className: 'text-right' },
+                        'Number'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Laadimine'
+                    ),
+                    React.createElement(
+                        'th',
                         null,
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Number'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Laadimine'
-                        ),
-                        React.createElement(
-                            'th',
-                            null,
-                            'Riik'
-                        ),
-                        React.createElement(
-                            'th',
-                            null,
-                            'Regioon'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Hind'
-                        ),
-                        React.createElement(
-                            'th',
-                            null,
-                            'T/O'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Laadimisi'
-                        ),
-                        React.createElement(
-                            'th',
-                            null,
-                            'Vedaja'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Arve'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Import/eksport'
-                        ),
-                        React.createElement(
-                            'th',
-                            { className: 'text-right' },
-                            'Kliendi transport'
-                        ),
-                        React.createElement(
-                            'th',
-                            null,
-                            'M\xE4rkused'
-                        )
+                        'Riik'
+                    ),
+                    React.createElement(
+                        'th',
+                        null,
+                        'Regioon'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Hind'
+                    ),
+                    React.createElement(
+                        'th',
+                        null,
+                        'T/O'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Laadimisi'
+                    ),
+                    React.createElement(
+                        'th',
+                        null,
+                        'Vedaja'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Arve'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Import/eksport'
+                    ),
+                    React.createElement(
+                        'th',
+                        { className: 'text-right' },
+                        'Kliendi transport'
+                    ),
+                    React.createElement(
+                        'th',
+                        null,
+                        'M\xE4rkused'
                     )
-                ),
-                React.createElement(
-                    'tbody',
-                    null,
-                    orders.map(order => React.createElement(
-                        'tr',
-                        { key: order.id },
-                        React.createElement(
-                            'td',
-                            { className: 'text-right' },
-                            React.createElement(
-                                'a',
-                                { href: `/orders/${order.id}` },
-                                order.id
-                            )
-                        ),
-                        React.createElement(
-                            'td',
-                            { className: 'text-right' },
-                            order.loading_date_formatted
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.country
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.region
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.full_load ? 'T' : 'O'
-                        ),
-                        React.createElement(
-                            'td',
-                            { className: 'text-right' },
-                            order.unloading_count
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.company_name
-                        ),
-                        React.createElement(
-                            'td',
-                            { className: 'text-right' },
-                            order.invoice
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.import ? 'Import' : 'Eksport'
-                        ),
-                        React.createElement(
-                            'td',
-                            { className: 'text-right' },
-                            order.client_transport ? 'Jah' : 'Ei'
-                        ),
-                        React.createElement(
-                            'td',
-                            null,
-                            order.notes
-                        )
-                    ))
                 )
+            ),
+            React.createElement(
+                'tbody',
+                null,
+                orders.map(order => React.createElement(
+                    'tr',
+                    { key: order.id },
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        React.createElement(
+                            'a',
+                            { href: `/orders/${order.id}` },
+                            order.id
+                        )
+                    ),
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        order.loading_date_formatted
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.country
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.region
+                    ),
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        order.price === null ? '' : order.price.toFixed(0)
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.full_load ? 'T' : 'O'
+                    ),
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        order.unloading_count
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.company_name
+                    ),
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        order.invoice
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.import ? 'Import' : 'Eksport'
+                    ),
+                    React.createElement(
+                        'td',
+                        { className: 'text-right' },
+                        order.client_transport ? 'Jah' : 'Ei'
+                    ),
+                    React.createElement(
+                        'td',
+                        null,
+                        order.notes
+                    )
+                ))
             )
         );
     }
@@ -1177,14 +1178,14 @@ exports.fromEstonian = (string) => {
 /***/ (function(module, exports) {
 
 exports.get = async (url) => {
-    const response = await fetch(url, {credentials: 'include'});
+    const response = await fetch(url, { credentials: 'include' });
     return handleResponse(response);
 };
 
 exports.save = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });
@@ -1194,7 +1195,7 @@ exports.save = async (url, data) => {
 exports.update = async (url, data) => {
     const response = await fetch(url, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });

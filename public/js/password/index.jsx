@@ -34,7 +34,7 @@ const PasswordForm = FormHoc((props) => {
                 error={errors.email}
                 value={values.email}
                 label='E-post'
-                placeholder='mina@lasita.ee'                
+                placeholder='Astel EST'
                 onChange={inputChange}/>
             <FormGroup>
                 <Submit

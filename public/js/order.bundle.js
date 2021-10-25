@@ -317,7 +317,6 @@ const OrderForm = FormHoc(class extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log('props', props);
         this.state = {
             addresses: [],
             editingOnload: false,
@@ -387,7 +386,6 @@ const OrderForm = FormHoc(class extends React.Component {
 
     componentWillReceiveProps(props) {
         const date = props.values.loading_date;
-        console.log('props', props);
         if (date !== this.props.values.loading_date) {
             this.updateLoadings(dateString.fromEstonian(date));
         }
@@ -1453,14 +1451,14 @@ module.exports = (fn, time, runAtEnd = true) => {
 /***/ (function(module, exports) {
 
 exports.get = async (url) => {
-    const response = await fetch(url, {credentials: 'include'});
+    const response = await fetch(url, { credentials: 'include' });
     return handleResponse(response);
 };
 
 exports.save = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });
@@ -1470,7 +1468,7 @@ exports.save = async (url, data) => {
 exports.update = async (url, data) => {
     const response = await fetch(url, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });

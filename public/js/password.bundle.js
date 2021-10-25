@@ -142,7 +142,7 @@ const PasswordForm = FormHoc(props => {
             error: errors.email,
             value: values.email,
             label: 'E-post',
-            placeholder: 'mina@lasita.ee',
+            placeholder: 'Astel EST',
             onChange: inputChange }),
         React.createElement(
             FormGroup,
@@ -473,14 +473,14 @@ module.exports = class Errors {
 /***/ (function(module, exports) {
 
 exports.get = async (url) => {
-    const response = await fetch(url, {credentials: 'include'});
+    const response = await fetch(url, { credentials: 'include' });
     return handleResponse(response);
 };
 
 exports.save = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });
@@ -490,7 +490,7 @@ exports.save = async (url, data) => {
 exports.update = async (url, data) => {
     const response = await fetch(url, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         credentials: 'include'
     });

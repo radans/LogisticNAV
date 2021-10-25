@@ -36,7 +36,6 @@ const startServer = async () => {
     const server = require('./lib/server');
     // Start the server socket.
     await server.listen();
-    console.log('server started');
     log.info('Server started.');
 };
 

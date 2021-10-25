@@ -115,10 +115,10 @@ module.exports = (props) => {
             <Salespeople people={props.salespeople} />
             <div className='vt-margin'>
                 {location !== 'foreign' &&
-                    <span><a href='/calendar/week?location=foreign'>Välislaadimised</a> </span>
+                    <span><a href='/calendar/week?location=foreign'>Räpina</a> </span>
                 }
                 {location !== 'estonia' &&
-                    <span><a href='/calendar/week'>Eesti</a> </span>
+                    <span><a href='/calendar/week'>Rakvere</a> </span>
                 }
                 {location !== 'all' &&
                     <a href='/calendar/week?location=all'>Kõik</a>

@@ -29,7 +29,7 @@ const UserSettingsForm = FormHoc((props) => {
                 value={values.name}
                 error={errors.name}
                 label='Nimi'
-                placeholder='Maris'
+                placeholder='Nimi'
                 onChange={inputChange}/>
             <TextInput
                 name='phone'

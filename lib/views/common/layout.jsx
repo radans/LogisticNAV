@@ -20,39 +20,39 @@ module.exports = (props) => {
     }
     return (
         <html>
-        <Head {...props}/>
-        <body>
-        <Header {...props}/>
-        <main className='vt-layout'>
-            <div className={menuClasses.join(' ')} id='layout-menu'>
-                <Menu {...props}/>
-            </div>
-            <div className={bodyClasses.join(' ')} id='layout-body'>
-                {!props.production &&
-                <div className='alert alert-warning'>
-                    Süsteem töötab arendusrežiimis.
-                </div>
-                }
-                {userWarning &&
-                <div className='alert alert-warning'>
-                    Kasutaja nimi, telefon või tellimuse e-post on määramata. Selle tulemusena
-                    ei pruugi programm alati sobivalt töötada. Kasutaja seadistusi saab
-                    määrata <a href='/settings/user'>Kasutaja seadistustest</a>.
-                </div>
-                }
-                {props.unsetSettings &&
-                <div className='alert alert-warning'>
-                    Mõni üldistest seadistustes on määramata. Süsteemi üldisi seadistusi saab
-                    määrata <a href='/settings'>Seadistustest</a>.
-                </div>
-                }
-                <h2 id='page-title'>{props.heading}</h2>
-                <NoScript/>
-                {props.children}
-            </div>
-        </main>
-        <Footer {...props}/>
-        </body>
+            <Head {...props}/>
+            <body>
+                <Header {...props}/>
+                <main className='vt-layout'>
+                    <div className={menuClasses.join(' ')} id='layout-menu'>
+                        <Menu {...props}/>
+                    </div>
+                    <div className={bodyClasses.join(' ')} id='layout-body'>
+                        {!props.production &&
+                            <div className='alert alert-warning'>
+                                Süsteem töötab arendusrežiimis.
+                            </div>
+                        }
+                        {userWarning &&
+                            <div className='alert alert-warning'>
+                                Kasutaja nimi, telefon või tellimuse e-post on määramata. Selle tulemusena
+                                ei pruugi programm alati sobivalt töötada. Kasutaja seadistusi saab
+                                määrata <a href='/settings/user'>Kasutaja seadistustest</a>.
+                            </div>
+                        }
+                        {props.unsetSettings &&
+                            <div className='alert alert-warning'>
+                                Mõni üldistest seadistustes on määramata. Süsteemi üldisi seadistusi saab
+                                määrata <a href='/settings'>Seadistustest</a>.
+                            </div>
+                        }
+                        <h2 id='page-title'>{props.heading}</h2>
+                        <NoScript/>
+                        {props.children}
+                    </div>
+                </main>
+                <Footer {...props}/>
+            </body>
         </html>
     );
 };

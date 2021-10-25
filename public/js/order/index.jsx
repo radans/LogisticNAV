@@ -28,12 +28,10 @@ companyOptions.unshift({
     label: 'Määramata'
 });
 
-
 const OrderForm = FormHoc(class extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log('props', props)
         this.state = {
             addresses: [],
             editingOnload: false,
@@ -91,7 +89,7 @@ const OrderForm = FormHoc(class extends React.Component {
         const url = `/api/addresses/${address}`;
         try {
             const addresses = await api.get(url);
-            this.setState({addresses, editingOnload: isOnload});
+            this.setState({ addresses, editingOnload: isOnload });
         } catch (err) {
             window.showError('Viga aadresside leidmisel. Palun proovi' +
                 ' tegevust uuesti teha või võta ühendust arvutispetsialistiga.');
@@ -104,7 +102,6 @@ const OrderForm = FormHoc(class extends React.Component {
 
     componentWillReceiveProps(props) {
         const date = props.values.loading_date;
-        console.log('props', props)
         if (date !== this.props.values.loading_date) {
             this.updateLoadings(dateString.fromEstonian(date));
         }
@@ -120,7 +117,7 @@ const OrderForm = FormHoc(class extends React.Component {
         }
         try {
             const loadings = await api.get(url);
-            this.setState({loadings});
+            this.setState({ loadings });
         } catch (err) {
             window.showError('Viga sama päeva laadimiste leidmisel. Palun proovi' +
                 ' tegevust uuesti teha või võta ühendust arvutispetsialistiga.');
@@ -148,7 +145,7 @@ const OrderForm = FormHoc(class extends React.Component {
 
     closeFinder(e) {
         e.preventDefault();
-        this.setState({addresses: []});
+        this.setState({ addresses: [] });
     }
 
     render() {
@@ -170,9 +167,7 @@ const OrderForm = FormHoc(class extends React.Component {
                 <div className='row'>
                     <div className='col-xs-12'>
                         {error &&
-                        <FormGroup>
-                            <div className='vt-form-error'>{error}</div>
-                        </FormGroup>}
+                        <FormGroup><div className='vt-form-error'>{error}</div></FormGroup>}
                     </div>
                 </div>
                 <div className='row'>
@@ -331,7 +326,7 @@ const OrderForm = FormHoc(class extends React.Component {
                                 label='Salvesta'
                                 disabled={loading}/>
                             &nbsp;<Button
-                            href='/orders'
+                                href='/orders'
                             icon='window-close-o'
                             label='Loobu'/>
                             {loading &&

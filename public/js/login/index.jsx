@@ -27,7 +27,7 @@ const LoginForm = FormHoc((props) => {
                 error={errors.email}
                 value={values.email}
                 label='E-post'
-                placeholder='mina@lasita.ee'                
+                placeholder='Astel EST'
                 onChange={inputChange}/>
             <TextInput
                 name='password'

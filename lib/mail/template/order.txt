@@ -5,8 +5,7 @@ numbrid ja kauba kohale jõudmise aeg. Juhin tähelepanu,
 et arvega koos tuleb saata CMR ja delivery note kliendi
 allkirjaga.
 
-NB! Enne laadima pääsemist peab juht minema dokumentide
-vormistamisse. Juhin tähelepanu, et juhil peab kinnitamiseks
+NB! Juhin tähelepanu, et juhil peab kinnitamiseks
 olema ka plastmassnurgad.
 
 Lisaks: Vajaliku info lubatud plastik nurkade kohta leiate
@@ -14,11 +13,11 @@ autoveose juhendist mis on tellimusel manusena kaasas!
 
 Tervitades,
 <%= user.name %>,
-AS Lasita Maja,
+Rakvere Metsamajand AS
 
-Risu tee 2, Pihva küla
-61407 Tähtvere vald
-Tartumaa, Estonia
+J. Kunderi 30, Rakvere
+44309 Lääne-Viru maakond
+Eesti
 
 Tel. <%= user.phone %>,
 <%= user.order_email %>
