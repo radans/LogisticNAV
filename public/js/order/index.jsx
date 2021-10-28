@@ -399,8 +399,7 @@ const initial = {
     import: false,
     client_transport: false,
     onload: [{
-        address: 'Lasita Maja AS, Risu tee 2, Pihva küla, 61407' +
-            ' Tähtvere vald, Tartumaa, Estonia 58.355089, 26.592400',
+        address: 'Rakvere Metsamajand AS, J. Kunderi 30, Rakvere, 44309 Lääne-Viru maakond, Eesti',
         time: '08:30'
     }],
     unload: []
